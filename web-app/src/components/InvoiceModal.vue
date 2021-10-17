@@ -210,6 +210,12 @@ export default {
       invoiceTotal: 0,
     };
   },
+  created() {
+
+    //   get current date for invoice date field
+    this.invoiceDateUnix = Date.now()
+    this.invoiceDate = new Date(this.invoiceDateUnix).toLocaleString('en-us', this.dateOptions)
+  },
   methods: {
     ...mapMutations(["TOGGLE_INVOICE"]),
 
