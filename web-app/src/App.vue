@@ -3,6 +3,7 @@
     <div class="app flex flex-column" v-if="!mobile">
       <Navigation />
       <div class="app-content flex flex-column">
+        <InvoiceModal />
         <router-view />
       </div>
     </div>
@@ -15,6 +16,7 @@
 
 <script>
 import Navigation from "./components/Navigation.vue";
+import InvoiceModal from "./components/InvoiceModal.vue";
 
 export default {
   data() {
@@ -24,6 +26,7 @@ export default {
   },
   components: {
     Navigation,
+    InvoiceModal,
   },
   created() {
     this.checkScreen();

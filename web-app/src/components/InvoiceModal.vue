@@ -90,6 +90,31 @@
           </div>
         </div>
       </div>
+
+      <!-- Invoice Work Details -->
+      <div class="invoice-work flex flex-column">
+        <div class="payment flex">
+          <div class="input flex flex-column">
+            <label for="invoiceDate">Invoice Date</label>
+            <input type="text" disabled id="invoiceDate" v-model="invoiceDate" />
+          </div>
+          <div class="input flex flex-column">
+            <label for="paymentDueDate">Payment's due</label>
+            <input type="text" required id="paymentDueDate" v-model="paymentDueDate" />
+          </div>
+        </div>
+        <div class="input flex flex-column">
+          <label for="paymentTerms">Payment Terms</label>
+          <select type="text" required id="paymentTerms" v-model="paymentTerms">
+              <option value="30">Net 30 Days</option>
+               <option value="60">Net 60 Days</option>
+          </select>
+        </div>
+        <div class="input flex flex-column">
+          <label for="clientName">Client's Name</label>
+          <input type="text" required id="clientName" v-model="clientName" />
+        </div>
+      </div>
     </form>
   </div>
 </template>
