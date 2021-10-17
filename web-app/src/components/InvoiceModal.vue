@@ -156,6 +156,17 @@
           </div>
         </div>
       </div>
+
+      <!-- Save/Exit -->
+      <div class="save flex">
+          <div class="left">
+              <button class="red" @click="closeinvoice">Cancel</button>
+          </div>
+          <div class="right">
+              <button class="dark-purple" @click="saveDraft">Save Draft</button>
+              <button class="purple" @click="publishinvoice">Create Invoice</button>
+          </div>
+      </div>
     </form>
   </div>
 </template>
@@ -193,4 +204,43 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.invoice-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    width: 100%;
+    height: 100vh;
+    overflow: scroll;
+    @media (min-width: 900px) {
+        left: 90px;
+    }
+
+    .invoice-content {
+        position: relative;
+        padding: 56px;
+        max-width: 700px;
+        width: 100%;
+        background-color: #141625;
+        color: #fff;
+        box-shadow: 10px 4px 6px -1px rgb(0, 0, 0, 0.2) 0 2px 4px -1px rgb(0, 0, 0, 0.06);
+    
+        h1 {
+            margin-bottom: 48px;
+            color: white;
+        }
+        h3 {
+            margin-bottom: 16px;
+            font-size: 18px;
+            color: #777f98;
+        }
+
+        h4 {
+            color: #7c5dfa;
+            font-size: 12px;
+            margin-bottom: 24px;
+        }
+    }
+}
+</style>
