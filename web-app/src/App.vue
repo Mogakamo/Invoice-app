@@ -101,6 +101,10 @@ export default {
   transform: translateX(-700px);
 }
 
+.invoice-leave-to {
+  transform: translateX(-700px);
+}
+
 button,
 .button {
   cursor: pointer;
