@@ -76,6 +76,7 @@ export default {
       }
 
       .filter {
+        cursor: pointer;
         position: relative;
         margin-right: 40px;
 
