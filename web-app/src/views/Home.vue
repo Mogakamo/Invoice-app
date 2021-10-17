@@ -40,13 +40,11 @@ export default {
   },
   components: {},
   methods: {
-    newInvoice() {
-
-    },
+    newInvoice() {},
     toggleFilterMenu() {
-      this.filterMenu = !this.filterMenu
-    }
-  }
+      this.filterMenu = !this.filterMenu;
+    },
+  },
 };
 </script>
 
