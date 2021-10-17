@@ -150,6 +150,10 @@
               <img src="@/assets/icon-delete.svg" @click="deleteInvoiceItem(item.id)" alt="">
             </tr>
           </table>
+          <div class="flex button" @click="addNewInvoiceItem">
+              <img src="@/assets/icon-plus.svg" alt="">
+              Add New item
+          </div>
         </div>
       </div>
     </form>
