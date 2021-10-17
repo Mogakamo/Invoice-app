@@ -168,7 +168,7 @@
       <!-- Save/Exit -->
       <div class="save flex">
         <div class="left">
-          <button class="red" @click="closeinvoice">Cancel</button>
+          <button class="red" @click="closeInvoice">Cancel</button>
         </div>
         <div class="right">
           <button class="dark-purple" @click="saveDraft">Save Draft</button>
@@ -180,6 +180,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
 export default {
   name: "InvoiceModal",
   data() {
@@ -209,6 +210,13 @@ export default {
       invoiceTotal: 0,
     };
   },
+  methods: {
+      ...mapMutations(['TOGGLE_INVOICE']),
+
+      closeInvoice() {
+          this.TOGGLE_INVOICE()
+      }
+  }
 };
 </script>
 
