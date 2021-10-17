@@ -236,23 +236,34 @@ export default {
       });
     },
     deleteInvoiceItem(id) {
-        this.invoiceItemList = this.invoiceItemList.filter(item => item.id !== id)
+      this.invoiceItemList = this.invoiceItemList.filter(
+        (item) => item.id !== id
+      );
+    },
+
+    calInvoiceTotal() {
+      this.invoiceTotal = 0;
+      this.invoiceItemList.forEach((item) => {
+        this.invoiceTotal += item.total;
+      });
     },
     publishInvoiceItem() {
-      this.invoicePending = true
+      this.invoicePending = true;
     },
     saveDraft() {
-      this.invoiceDraft = true
+      this.invoiceDraft = true;
     },
     async uploadInvoice() {
       if (this.invoiceItemList.length <= 0) {
-        alert('Please ensure you filled out work items!')
+        alert("Please ensure you filled out work items!");
         return;
       }
+
+      this.calInvoiceTotal();
     },
     submitForm() {
-      this.uploadInvoice()
-    }
+      this.uploadInvoice();
+    },
   },
   watch: {
     paymentTerms() {
