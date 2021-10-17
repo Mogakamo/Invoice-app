@@ -30,6 +30,7 @@
 
 <script>
 // @ is an alias to /src
+import {mapMutations} from "vuex"
 
 export default {
   name: "Home",
@@ -40,7 +41,10 @@ export default {
   },
   components: {},
   methods: {
-    newInvoice() {},
+    ...mapMutations(['TOGGLE_INVOICE']),
+    newInvoice() {
+      this.TOGGLE_INVOICE()
+    },
     toggleFilterMenu() {
       this.filterMenu = !this.filterMenu;
     },
