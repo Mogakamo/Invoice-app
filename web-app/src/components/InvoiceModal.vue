@@ -237,6 +237,16 @@ export default {
     },
     deleteInvoiceItem(id) {
         this.invoiceItemList = this.invoiceItemList.filter(item => item.id !== id)
+    },
+    publishInvoiceItem() {
+      this.invoicePending = true
+    },
+    saveDraft() {
+      this.invoiceDraft = true
+    },
+    async uploadInvoice() {},
+    submitForm() {
+      this.uploadInvoice()
     }
   },
   watch: {
