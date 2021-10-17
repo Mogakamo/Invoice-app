@@ -123,8 +123,8 @@
         <div class="input flex flex-column">
           <label for="productDescription">Product Description</label>
           <input
-            type="text"
             required
+            type="text"
             id="productDescription"
             v-model="productDescription"
           />
@@ -136,12 +136,12 @@
               <th class="item-name">Item Name</th>
               <th class="qty">Qty</th>
               <th class="price">Price</th>
-              <th class="total">Total</th>
+              <th class="total">Toal</th>
             </tr>
             <tr
-              v-for="{ item, index } in invoiceItemList"
-              :key="index"
               class="table-items flex"
+              v-for="(item, index) in invoiceItemList"
+              :key="index"
             >
               <td class="item-name">
                 <input type="text" v-model="item.itemName" />
@@ -152,8 +152,8 @@
                 ${{ (item.total = item.qty * item.price) }}
               </td>
               <img
-                src="@/assets/icon-delete.svg"
                 @click="deleteInvoiceItem(item.id)"
+                src="@/assets/icon-delete.svg"
                 alt=""
               />
             </tr>
@@ -181,6 +181,8 @@
 
 <script>
 import { mapMutations } from "vuex";
+import { uid } from "uid";
+
 export default {
   name: "InvoiceModal",
   data() {
@@ -224,6 +226,15 @@ export default {
     closeInvoice() {
       this.TOGGLE_INVOICE();
     },
+    addNewInvoiceItem() {
+      this.invoiceItemList.push({
+        id: uid(),
+        itemName: "",
+        qty: "",
+        price: 0,
+        total: 0,
+      });
+    },
   },
   watch: {
     paymentTerms() {
@@ -231,7 +242,10 @@ export default {
       this.paymentDueDateUnix = futureDate.setDate(
         futureDate.getDate() + parseInt(this.paymentTerms)
       );
-      this.paymentDueDate = new Date(this.paymentDueDateUnix).toLocaleString('en-us', this.dateOptions)
+      this.paymentDueDate = new Date(this.paymentDueDateUnix).toLocaleString(
+        "en-us",
+        this.dateOptions
+      );
     },
   },
 };
