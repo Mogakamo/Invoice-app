@@ -184,7 +184,7 @@ import { mapMutations } from "vuex";
 import { uid } from "uid";
 import firebase from "../firebase/firebaseinit";
 
-const db 
+const db = firebase.firestore();
 
 export default {
   name: "InvoiceModal",
