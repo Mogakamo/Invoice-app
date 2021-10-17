@@ -244,7 +244,12 @@ export default {
     saveDraft() {
       this.invoiceDraft = true
     },
-    async uploadInvoice() {},
+    async uploadInvoice() {
+      if (this.invoiceItemList.length <= 0) {
+        alert('Please ensure you filled out work items!')
+        return;
+      }
+    },
     submitForm() {
       this.uploadInvoice()
     }
