@@ -7,9 +7,9 @@
         <span>There are 4 total invoices</span>
       </div>
       <div class="right flex flex-row">
-        <div class="filter flex" ref="filter" @click="togglefilterMenu">
+        <div class="filter flex" @click="toggleFilterMenu">
           <span>Filter by status</span>
-          <img src="@/assets/icon-arrow-down.svg" alt="">
+          <img src="@/assets/icon-arrow-down.svg" alt="" />
           <ul class="filter-menu" v-show="filterMenu">
             <li>Draft</li>
             <li>Pending</li>
@@ -17,12 +17,12 @@
             <li>Clear Filter</li>
           </ul>
         </div>
-      <div class="button flex" @click="newInvoice">
-        <div class="inner-button flex">
-          <img src="@/assets/icon-plus.svg" alt="">
+        <div class="button flex" @click="newInvoice">
+          <div class="inner-button flex">
+            <img src="@/assets/icon-plus.svg" alt="" />
+          </div>
           <span>New Invoice</span>
         </div>
-      </div>
       </div>
     </div>
   </div>
@@ -35,10 +35,18 @@ export default {
   name: "Home",
   data() {
     return {
-      filterMenu: null
-    }
+      filterMenu: null,
+    };
   },
   components: {},
+  methods: {
+    newInvoice() {
+
+    },
+    toggleFilterMenu() {
+      this.filterMenu = !this.filterMenu
+    }
+  }
 };
 </script>
 
@@ -66,15 +74,10 @@ export default {
           font-size: 12px;
         }
       }
-      
+
       .filter {
         position: relative;
         margin-right: 40px;
-
-        span,
-        img {
-          pointer-events: none;
-        }
 
         img {
           margin-left: 12px;
@@ -88,7 +91,8 @@ export default {
           top: 25px;
           list-style: none;
           background-color: #1e2139;
-          box-shadow: 0 4px -1px rgba(0, 0, 0, 0.1) 0 2px 4px -1px rgba(0, 0, 0, 0.86);
+          box-shadow: 0 4px -1px rgba(0, 0, 0, 0.1) 0 2px 4px -1px
+            rgba(0, 0, 0, 0.86);
 
           li {
             cursor: pointer;
@@ -104,7 +108,22 @@ export default {
       }
 
       .button {
-        
+        padding: 8px 18px;
+        background-color: #7c5dfa;
+        border-radius: 40px;
+
+        .inner-button {
+          margin-right: 8px;
+          border-radius: 50%;
+          padding: 8px;
+          align-items: center;
+          justify-content: center;
+          background-color: #fff;
+          img {
+            width: 10px;
+            height: 10px;
+          }
+        }
       }
     }
   }
