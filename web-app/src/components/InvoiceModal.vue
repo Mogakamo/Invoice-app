@@ -96,23 +96,60 @@
         <div class="payment flex">
           <div class="input flex flex-column">
             <label for="invoiceDate">Invoice Date</label>
-            <input type="text" disabled id="invoiceDate" v-model="invoiceDate" />
+            <input
+              type="text"
+              disabled
+              id="invoiceDate"
+              v-model="invoiceDate"
+            />
           </div>
           <div class="input flex flex-column">
             <label for="paymentDueDate">Payment's due</label>
-            <input type="text" required id="paymentDueDate" v-model="paymentDueDate" />
+            <input
+              type="text"
+              required
+              id="paymentDueDate"
+              v-model="paymentDueDate"
+            />
           </div>
         </div>
         <div class="input flex flex-column">
           <label for="paymentTerms">Payment Terms</label>
           <select type="text" required id="paymentTerms" v-model="paymentTerms">
-              <option value="30">Net 30 Days</option>
-               <option value="60">Net 60 Days</option>
+            <option value="30">Net 30 Days</option>
+            <option value="60">Net 60 Days</option>
           </select>
         </div>
         <div class="input flex flex-column">
-          <label for="clientName">Client's Name</label>
-          <input type="text" required id="clientName" v-model="clientName" />
+          <label for="productDescription">Product Description</label>
+          <input
+            type="text"
+            required
+            id="productDescription"
+            v-model="productDescription"
+          />
+        </div>
+        <div class="work-items">
+          <h3>Item List</h3>
+          <table class="item-list">
+            <tr class="table-heading flex">
+              <th class="item-name">Item Name</th>
+              <th class="qty">Qty</th>
+              <th class="price">Price</th>
+              <th class="total">Total</th>
+            </tr>
+            <tr
+              v-for="{ item, index } in invoiceItemList"
+              :key="index"
+              class="table-items flex"
+            >
+              <td class="item-name"><input type="text" v-model="item.itemName"></td>
+              <td class="qty"><input type="text" v-model="item.qty"></td>
+              <td class="price"><input type="text" v-model="item.price"></td>
+              <td class="total flex">${{ (item.total = item.qty * item.price) }}</td>
+              <img src="@/assets/icon-delete.svg" @click="deleteInvoiceItem(item.id)" alt="">
+            </tr>
+          </table>
         </div>
       </div>
     </form>
