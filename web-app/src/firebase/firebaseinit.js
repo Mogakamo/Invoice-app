@@ -2,7 +2,7 @@
 
 import { initializeApp } from "firebase/compat/app";
 
-import { getAnalytics } from "firebase/compat/analytics";
+import { getAnalytics } from "firebase/analytics";
 
 // TODO: Add SDKs for Firebase products that you want to use
 
