@@ -1,8 +1,8 @@
 // Import the functions you need from the SDKs you need
 
-// import { initializeApp } from "firebase/app";
-import firebase from "firebase";
-import { getAnalytics } from "firebase/analytics";
+import { initializeApp } from "firebase/compat/app";
+
+import { getAnalytics } from "firebase/compat/analytics";
 
 // TODO: Add SDKs for Firebase products that you want to use
 
@@ -30,6 +30,6 @@ const firebaseConfig = {
 
 // Initialize Firebase
 
-export default firebase.initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 // eslint-disable-next-line
 const analytics = getAnalytics(app);
