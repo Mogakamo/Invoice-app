@@ -180,11 +180,10 @@
 </template>
 
 <script>
+import db from "../firebase/firebaseinit";
 import { mapMutations } from "vuex";
 import { uid } from "uid";
-import firebase from "../firebase/firebaseinit";
-
-const db = firebase.firestore();
+// import firebase from "../firebase/firebaseinit";
 
 export default {
   name: "InvoiceModal",

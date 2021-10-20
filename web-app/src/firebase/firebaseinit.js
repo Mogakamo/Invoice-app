@@ -1,6 +1,6 @@
-import { initializeApp } from 'firebase/app'
+import firebase from "firebase/app"
 
-const firebaseApp = initializeApp({
+var firebaseConfig = {
   apiKey: "AIzaSyDugok9R0LeFFScBTFE8zJkmanxtYgTF2o",
 
   authDomain: "invoice-app-e312b.firebaseapp.com",
@@ -14,4 +14,7 @@ const firebaseApp = initializeApp({
   appId: "1:528654232475:web:597e7b767439392639cf3e",
 
   measurementId: "G-75CLBCCNJY",
-});
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
